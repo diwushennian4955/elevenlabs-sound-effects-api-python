@@ -28,6 +28,22 @@ result = client.audio.speech(
 print(result.url)  # Direct URL to generated audio
 ```
 
+## ⚡ NEW: One-Step API (No Polling!)
+
+```python
+import requests
+
+response = requests.post(
+    'https://nexa-api.com/v1/generate',
+    headers={'Authorization': 'Bearer YOUR_API_KEY'},
+    json={'model': 'flux-2-pro', 'prompt': 'a sunset over mountains', 'image_size': 'landscape_4_3'}
+)
+image_url = response.json()['result']['outputs'][0]['url']
+print(image_url)  # https://nexa-api.com/v1/files/...
+```
+
+**One request → direct result. No polling needed.**
+
 ## 💰 Pricing
 
 | Model | Price | Speed |
